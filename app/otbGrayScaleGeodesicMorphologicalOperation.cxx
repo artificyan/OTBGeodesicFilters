@@ -32,8 +32,8 @@ namespace otb
       typedef BallStructuringType::Superclass                                        StructuringType;
       typedef itk::BinaryCrossStructuringElement<FloatImageType::PixelType, 2>       CrossStructuringType;
 
-      typedef itk::OpeningByReconstructionImageFilter<FloatImageType,FloatImageType,StructuringType> OpeningType;
-      typedef itk::ClosingByReconstructionImageFilter<FloatImageType,FloatImageType,StructuringType> ClosingType;
+      typedef itk::OpeningByReconstructionImageFilter<FloatImageType,FloatImageType,StructuringType> OpeningFilterType;
+      typedef itk::ClosingByReconstructionImageFilter<FloatImageType,FloatImageType,StructuringType> ClosingFilterType;
       
 
       typedef ImageList<FloatImageType>                                              ImageListType;
@@ -125,18 +125,18 @@ namespace otb
 
 	     if (GetParameterString("filter") == "gopening")
 	       {
-		 OpeningType::Pointer GeodesicOpening = OpeningType::New();
-		 GeodesicOpening->SetKernel(se);
-		 GeodesicOpening->SetInput(m_ExtractorFilter->GetOutput());
-		 SetParameterOutputImage("out", GeodesicOpening->GetOutput());
+		 OpeningFilterType::Pointer GeodesicOpening = OpeningFilterType::New();
+		 GeodesicOpeningFilter->SetKernel(se);
+		 GeodesicOpeningFilter->SetInput(m_ExtractorFilter->GetOutput());
+		 SetParameterOutputImage("out", GeodesicOpeningFilter->GetOutput());
 	       }
 
 	     else if (GetParameterString("filter") == "gclosing")
 	       {
-		 ClosingType::Pointer GeodesicClosing = ClosingType::New();
-		 GeodesicClosing->SetKernel(se);
-		 GeodesicClosing->SetInput(m_ExtractorFilter->GetOutput());
-		 SetParameterOutputImage("out", GeodesicClosing->GetOutput());
+		 ClosingFilterType::Pointer GeodesicClosingFilter = ClosingFilterType::New();
+		 GeodesicClosingFilter->SetKernel(se);
+		 GeodesicClosingFilter->SetInput(m_ExtractorFilter->GetOutput());
+		 SetParameterOutputImage("out", GeodesicClosingFilter->GetOutput());
 	       } 
 	   }
       }
