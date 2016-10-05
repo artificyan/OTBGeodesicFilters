@@ -54,7 +54,7 @@ namespace otb
 	SetParameterDescription( "in", "The input image to be filtered.");
     
 	AddParameter(ParameterType_OutputImage, "out",  "Output Image");
-	SetParameterDescription( "out", "Output image containing the filtered output image. ");
+	SetParameterDescription( "out", "Output image containing the filtered output image.");
 	SetDefaultOutputPixelType( "out", ImagePixelType_float);
 
 	// Selected band for the filtering
