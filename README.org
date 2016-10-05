@@ -1,0 +1,2 @@
+Implement Geodesic opening and closing operation. 
+From [[https://github.com/orfeotoolbox/OTB/tree/master/Modules/Applications/AppMorphology]]
