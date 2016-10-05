@@ -1,4 +1,4 @@
-set(OTBAppMorphology_LINK_LIBS
+set(OTBGeodesicFilters_LINK_LIBS
   ${OTBImageBase_LIBRARIES}
   ${OTBApplicationEngine_LIBRARIES}
   ${OTBObjectList_LIBRARIES}
