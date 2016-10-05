@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(OTBGeodesicFilters)
-set(OTBGeodesicFilters_LIBRARIES OTBGeodesicFilters)
+set(OTBGeodesicFilters_LIBRARIES)
 
 if(NOT OTB_SOURCE_DIR)
   find_package(OTB REQUIRED)
