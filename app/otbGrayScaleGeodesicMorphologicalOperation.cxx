@@ -105,7 +105,7 @@ namespace otb
 	     itkExceptionMacro(<< "The specified channel index is invalid.");
 	   }
 
-	 ExtractorFilterType::Pointer  m_ExtractorFilter = ExtractorFilterType::New();
+	 m_ExtractorFilter = ExtractorFilterType::New();
 	 m_ExtractorFilter->SetInput(inImage);
 	 m_ExtractorFilter->SetStartX(inImage->GetLargestPossibleRegion().GetIndex(0));
 	 m_ExtractorFilter->SetStartY(inImage->GetLargestPossibleRegion().GetIndex(1));
@@ -125,7 +125,7 @@ namespace otb
 
 	     if (GetParameterString("filter") == "gopening")
 	       {
-		 OpeningFilterType::Pointer GeodesicOpening = OpeningFilterType::New();
+		 GeodesicOpeningFilter = OpeningFilterType::New();
 		 GeodesicOpeningFilter->SetKernel(se);
 		 GeodesicOpeningFilter->SetInput(m_ExtractorFilter->GetOutput());
 		 SetParameterOutputImage("out", GeodesicOpeningFilter->GetOutput());
@@ -133,13 +133,16 @@ namespace otb
 
 	     else if (GetParameterString("filter") == "gclosing")
 	       {
-		 ClosingFilterType::Pointer GeodesicClosingFilter = ClosingFilterType::New();
+		 GeodesicClosingFilter = ClosingFilterType::New();
 		 GeodesicClosingFilter->SetKernel(se);
 		 GeodesicClosingFilter->SetInput(m_ExtractorFilter->GetOutput());
 		 SetParameterOutputImage("out", GeodesicClosingFilter->GetOutput());
 	       } 
 	   }
       }
+      ExtractorFilterType::Pointer  m_ExtractorFilter;
+      OpeningFilterType::Pointer GeodesicOpeningFilter;
+      ClosingFilterType::Pointer GeodesicClosingFilter;
     };
   }
 }
