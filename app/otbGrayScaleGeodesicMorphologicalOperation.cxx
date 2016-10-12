@@ -116,7 +116,7 @@ namespace otb
 
 	 if (GetParameterString("structype")== "ball")
 	   {
-	     BallStructuringType se;
+	     BallStructuringType se; // The size of (2*xradius+1)\times(2*yradius+1)
 	     RadiusType rad;
 	     rad[0] = this->GetParameterInt("structype.ball.xradius");
 	     rad[1] = this->GetParameterInt("structype.ball.yradius");
